@@ -4,7 +4,7 @@
   <img src="docs/assets/brand/citely-logo.png" alt="Citely logo" width="180" />
 </p>
 
-# ⚖️ Citely
+# Citely
 
 > Experts publish Web3 legal, compliance, security, and risk reports with on-chain provenance. Human readers and AI agents unlock the same paid report through x402, with revenue sent directly to the author wallet.
 
@@ -38,7 +38,7 @@ Citely is an on-chain content licensing and pay-per-read platform for expert Web
 This submission is the **hackathon MVP** for the Citely platform. It freezes one required end-to-end flow:
 
 ```text
-input report URL -> clean report + agent companion -> author signs on-chain -> human/agent pays -> verifiable result
+input report URL -> clean report + Citely Reader context -> author signs on-chain -> human/agent pays -> verifiable result
 ```
 
 The current MVP runs on Base Sepolia, uses EAS for author/content/price attestations, x402 for USDC pay-per-read access, and Cobo Agentic Wallet / pact to demonstrate constrained agent payments.
@@ -57,9 +57,9 @@ High-quality Web3 risk analysis often lives in long-form posts, legal notes, res
 Citely does not replace experts with AI. It makes expert content safely consumable by AI agents.
 
 - AI agents can discover relevant reports for a user question instead of forcing users to browse the entire catalog.
-- After payment, the agent receives the full report plus companion material such as glossary, legal map, and misconception table.
+- After payment, Citely Reader receives the full report plus structured reading context such as glossary, legal map, and misconception table.
 - Agent output should cite the author and on-chain attestation, avoiding uncited legal or compliance claims.
-- In this MVP, the **agent reader payment and response flow is real**; companion content is pre-baked, while live LLM companion generation is a next step.
+- In this MVP, the **Citely Reader payment and response flow is real**; Reader context is pre-baked, while live LLM generation of reading context is a next step.
 
 ## Why Web3
 
@@ -74,7 +74,7 @@ Web3 is the provenance and settlement layer, not decoration.
 
 ```mermaid
 flowchart LR
-  A["Input: original report URL"] --> B["AI / ingestion layer: clean report + companion scaffold"]
+  A["Input: original report URL"] --> B["AI / ingestion layer: clean report + Reader context"]
   B --> C["Author signs EAS attestation"]
   C --> D["Catalog lists preview + on-chain proof"]
   D --> E["Human reader pays with x402"]
@@ -90,9 +90,9 @@ flowchart LR
 | Priority | Included |
 |---|---|
 | **Must-have** | One report lifecycle; `/publish`; EAS attestation; `/reports`; x402 paid article endpoint; agent reader flow; one validation trail. |
-| **Should-have** | Human wallet unlock; agent companion response; visible author earned counter; `README` and 3-5 minute demo story. |
+| **Should-have** | Human wallet unlock; Citely Reader response; visible author earned counter; `README` and 3-5 minute demo story. |
 | **Nice-to-have** | More reports; polished `/how-it-works`; author leaderboard polish; downloaded article package after payment. |
-| **Cut / Mock** | Production DB/KV persistence; full author dashboard; mainnet settlement; live LLM companion generation; fully automated URL ingestion for every source. |
+| **Cut / Mock** | Production DB/KV persistence; full author dashboard; mainnet settlement; live LLM generation of Reader context; fully automated URL ingestion for every source. |
 
 ## Demo
 
@@ -109,10 +109,10 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 | Step | What Happens | Status |
 |---|---|---|
 | 1. Author input | The author enters an original report URL in For Writers and opens `/publish`. | Shown in demo |
-| 2. AI / agent processing | The system turns the source into an in-app report and agent companion structure. | Companion is pre-baked |
+| 2. AI / agent processing | The system turns the source into an in-app report and structured context that Citely Reader can use. | Reader context is pre-baked |
 | 3. Web3 provenance | The author signs with a wallet, creates an EAS attestation, and the report appears in the catalog with an on-chain badge. | Base Sepolia testnet |
 | 4. Human payment | A human reader pays test USDC through x402 with MetaMask and unlocks the full report. | Shown in demo |
-| 5. Agent payment | The agent reader calls the paid API, follows `402 -> pay -> 200`, receives the full report plus companion, and answers with citation. | Shown in demo |
+| 5. Agent payment | Citely Reader calls the paid API, follows `402 -> pay -> 200`, receives the full report plus structured context, and answers with citation. | Shown in demo |
 | 6. Verifiable result | The result can be checked through EAS UID, testnet transaction/payment logs, API response, or demo video. | Explorer links to be confirmed |
 
 ## Roadmap
@@ -130,7 +130,7 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 |---|---|---|
 | EAS attestation UID | Local index contains records | `yaoqian-crypto-liability`: `0xe084046a63beff82e07a768907c8802ce9dc3954c74334e6d3046446fb10cfec`; `web3-illegal-employment`: `0x16669c5a17d62f52529971e24151e8d91220318f9ecc29ff087b2f57f449f7f6`. Explorer links should be confirmed before final submission. |
 | EAS transaction hash | Local index contains records | `0xd90b24a6c264c9359dc8ebd1d1ee48a6d8f5003b635ca465492147d149e03b42`; `0x20fc5d67096155adfe1b44ef2f88928991f63a212182925a109ee02becc4b322`. |
-| x402 paid API | Implemented | `GET /api/v1/articles/{slug}` returns 402 first, then 200 with full content + companion + citation after payment. |
+| x402 paid API | Implemented | `GET /api/v1/articles/{slug}` returns 402 first, then 200 with full content + Reader context + citation after payment. |
 | Agent discovery | Implemented | `public/SKILL.md`, `public/llms.txt`, `public/openapi.json`. |
 | Local payment log | Demo records exist | `data/payment-log.json` records demo payment events; production should move this to DB/KV. |
 | Tests | Reproducible | `pnpm test` / `pnpm build` can be used as final submission checks; final result to be added. |
@@ -138,7 +138,7 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 ## Risks
 
 - **Testnet boundary**: the current demo runs on Base Sepolia and should not be treated as a mainnet payment flow.
-- **Mock boundary**: companion content is pre-baked; live LLM generation, author review workflow, and universal URL ingestion remain unfinished.
+- **Mock boundary**: Reader context is pre-baked; live LLM generation, author review workflow, and universal URL ingestion remain unfinished.
 - **Persistence boundary**: the demo uses JSON files for the attestation index and payment log; Vercel serverless file writes are not production-safe.
 - **Permission boundary**: agent payments must be constrained by wallet policy, never by raw private keys, unlimited approvals, or unbounded payment authority.
 - **Content boundary**: Citely provides risk education, provenance, and paid access infrastructure, not legal advice.
@@ -148,8 +148,8 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 
 | Member | Role | GitHub |
 |---|---|---|
-| Sophie Yao | Product design and full-stack implementation | [@web3yaso](https://github.com/web3yaso) |
-| Alex Fan | Compliance strategy and pitch coordination | [@alexfanzong](https://github.com/alexfanzong) |
+| Sophie | Product design and full-stack implementation | [@web3yaso](https://github.com/web3yaso) |
+| Alex Fan | Compliance strategy and project narrative | [@alexfanzong](https://github.com/alexfanzong) |
 
 ## License
 

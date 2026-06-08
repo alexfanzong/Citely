@@ -4,7 +4,7 @@
   <img src="docs/assets/brand/citely-logo.png" alt="Citely logo" width="180" />
 </p>
 
-# ⚖️ Citely
+# Citely
 
 > 专家把 Web3 法律、合规、安全与风险报告签名上链；真人读者和 AI Agent 用 x402 按篇付费解锁全文，收入 100% 直达作者钱包。
 
@@ -38,7 +38,7 @@ Citely 是一个面向专业 Web3 合规内容的链上内容授权与付费阅�
 本次提交是 Citely 平台的 **hackathon MVP**，目标只冻结一条必须跑通的主流程：
 
 ```text
-输入文章 URL -> 生成可读报告与 Agent companion -> 作者签名上链 -> 真人/Agent 付费读取 -> 返回可验证结果
+输入文章 URL -> 生成可读报告与 Citely Reader 上下文 -> 作者签名上链 -> 真人/Agent 付费读取 -> 返回可验证结果
 ```
 
 当前 MVP 运行在 Base Sepolia 测试网，使用 EAS 做作者/内容/价格存证，使用 x402 做按篇 USDC 付费，使用 Cobo Agentic Wallet / pact 展示 Agent 支付边界。
@@ -57,9 +57,9 @@ Citely 是一个面向专业 Web3 合规内容的链上内容授权与付费阅�
 Citely 的核心不是让 AI 取代专家，而是让专家内容变成 Agent 可以安全消费的知识单元。
 
 - AI Agent 可以根据用户问题发现相关报告，而不是让用户自己翻完整内容库。
-- Agent 付费后拿到全文和 companion，用术语表、法条地图、误区表辅助生成有边界的回答。
+- Agent 付费后由 Citely Reader 拿到全文和结构化阅读上下文，用术语表、法条地图、误区表辅助生成有边界的回答。
 - Agent 输出必须带作者和链上存证引用，避免无来源的法律/合规判断。
-- 本次 MVP 中，**Agent reader 的付费读取与回答生成是真实主流程**；companion 内容为预烘材料，实时 LLM 生成 companion 属于下一步。
+- 本次 MVP 中，**Citely Reader 的付费读取与回答生成是真实主流程**；Citely Reader 上下文为预烘材料，实时 LLM 生成阅读上下文属于下一步。
 
 ## 为什么需要 Web3
 
@@ -74,7 +74,7 @@ Web3 不是装饰层，而是 Citely 的可信结算和可验证来源层。
 
 ```mermaid
 flowchart LR
-  A["输入原文 URL"] --> B["AI / 导入层: 生成报告与 companion 草稿"]
+  A["输入原文 URL"] --> B["AI / 导入层: 生成报告与 Citely Reader 上下文"]
   B --> C["作者签名生成 EAS 存证"]
   C --> D["目录展示预览与链上证明"]
   D --> E["真人读者用 x402 付费"]
@@ -90,9 +90,9 @@ flowchart LR
 | 优先级 | 本次包含 |
 |---|---|
 | **必须完成** | 单篇报告生命周期；`/publish`；EAS 存证；`/reports`；x402 付费文章接口；Agent reader 主流程；至少一条可复查验证链路。 |
-| **应该完成** | 真人钱包解锁；Agent companion 回答；作者收益可见；`README` 与 3-5 分钟演示。 |
+| **应该完成** | 真人钱包解锁；Citely Reader 回答；作者收益可见；`README` 与 3-5 分钟演示。 |
 | **可以加分** | 更多报告；完善 `/how-it-works`；作者榜单打磨；付费后文章包下载。 |
-| **暂缓 / Mock** | 生产 DB/KV 持久化；完整作者后台；主网结算；实时 LLM 生成 companion；所有来源的全自动 URL 导入。 |
+| **暂缓 / Mock** | 生产 DB/KV 持久化；完整作者后台；主网结算；实时 LLM 生成 Citely Reader 上下文；所有来源的全自动 URL 导入。 |
 
 ## 演示
 
@@ -109,10 +109,10 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 | 步骤 | 发生什么 | 状态 |
 |---|---|---|
 | 1. 作者输入 | 作者在 For Writers 输入原文 URL，进入 `/publish`。 | 演示中可见 |
-| 2. AI / Agent 处理 | 系统把文章整理为站内报告和 Agent companion 结构。 | companion 为预烘材料 |
+| 2. AI / Agent 处理 | 系统把文章整理为站内报告和 Citely Reader 可用的结构化上下文。 | Citely Reader 上下文为预烘材料 |
 | 3. Web3 来源存证 | 作者钱包签名，生成 EAS attestation，报告进入目录并显示链上徽章。 | Base Sepolia 测试网 |
 | 4. 真人付费 | 真人读者用 MetaMask 通过 x402 支付测试 USDC，解锁全文。 | 演示中可见 |
-| 5. Agent 付费 | Agent reader 调用付费 API，经历 `402 -> pay -> 200`，拿到全文和 companion，并输出带引用的回答。 | 演示中可见 |
+| 5. Agent 付费 | Citely Reader 调用付费 API，经历 `402 -> pay -> 200`，拿到全文和结构化上下文，并输出带引用的回答。 | 演示中可见 |
 | 6. 可验证结果 | 可复查 EAS UID、测试网交易/付款日志、API 响应或 demo 视频。 | Explorer 链接待最终确认 |
 
 ## 路线图
@@ -130,7 +130,7 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 |---|---|---|
 | EAS attestation UID | 已有本地索引记录 | `yaoqian-crypto-liability`: `0xe084046a63beff82e07a768907c8802ce9dc3954c74334e6d3046446fb10cfec`; `web3-illegal-employment`: `0x16669c5a17d62f52529971e24151e8d91220318f9ecc29ff087b2f57f449f7f6`。最终提交前需确认 explorer 链接。 |
 | EAS 交易哈希 | 已有本地索引记录 | `0xd90b24a6c264c9359dc8ebd1d1ee48a6d8f5003b635ca465492147d149e03b42`; `0x20fc5d67096155adfe1b44ef2f88928991f63a212182925a109ee02becc4b322`。 |
-| x402 付费 API | 已实现 | `GET /api/v1/articles/{slug}`：首次 402，付款后 200 返回全文 + companion + citation。 |
+| x402 付费 API | 已实现 | `GET /api/v1/articles/{slug}`：首次 402，付款后 200 返回全文 + Citely Reader 上下文 + citation。 |
 | Agent 发现入口 | 已实现 | `public/SKILL.md`、`public/llms.txt`、`public/openapi.json`。 |
 | 本地付款日志 | 已有 demo 记录 | `data/payment-log.json` 记录 demo 付款事件；生产环境需迁移到 DB/KV。 |
 | 测试与构建 | 可复查 | `pnpm test` / `pnpm build` 可作为最终提交前验证命令；最终结果待补。 |
@@ -138,7 +138,7 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 ## 风险边界
 
 - **测试网边界**：当前跑在 Base Sepolia，不代表主网资金流已经上线。
-- **Mock 边界**：companion 为预烘内容；实时 LLM 生成、作者审核工作流和通用 URL 抓取仍未完成。
+- **Mock 边界**：Citely Reader 上下文为预烘内容；实时 LLM 生成、作者审核工作流和通用 URL 抓取仍未完成。
 - **持久化边界**：当前 demo 用 JSON 文件记录 attestation index 和 payment log；Vercel serverless 上不适合持久写入。
 - **权限边界**：Agent 支付必须受钱包策略限制，不能给主网私钥、无限授权或不受限支付能力。
 - **内容边界**：Citely 提供风险教育、来源验证和付费访问基础设施，不提供法律意见。
@@ -148,8 +148,8 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 
 | 成员 | 角色 | GitHub |
 |---|---|---|
-| Sophie Yao | 产品设计与全栈实现 | [@web3yaso](https://github.com/web3yaso) |
-| Alex Fan | 合规策略与路演对接 | [@alexfanzong](https://github.com/alexfanzong) |
+| Sophie | 产品设计与全栈实现 | [@web3yaso](https://github.com/web3yaso) |
+| Alex Fan | 合规策略与项目叙事 | [@alexfanzong](https://github.com/alexfanzong) |
 
 ## 许可
 
