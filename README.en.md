@@ -1,5 +1,9 @@
 <a id="citely"></a>
 
+<p align="center">
+  <img src="docs/assets/brand/citely-logo.png" alt="Citely logo" width="180" />
+</p>
+
 # ⚖️ Citely
 
 > Experts publish Web3 legal, compliance, security, and risk reports with on-chain provenance. Human readers and AI agents unlock the same paid report through x402, with revenue sent directly to the author wallet.
@@ -9,6 +13,7 @@
 [![x402](https://img.shields.io/badge/x402-pay--per--read-3B82F6)](https://x402.org/)
 [![Base Sepolia](https://img.shields.io/badge/Base-Sepolia-0052FF)](https://docs.base.org/)
 [![EAS](https://img.shields.io/badge/EAS-attestations-6B7280)](https://attest.org/)
+[![License](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
 
 [中文](README.md) | **English**
 
@@ -95,13 +100,9 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 
 ### Video Demo
 
-[![Citely demo preview](docs/assets/demo/citely-demo-preview.gif)](docs/assets/demo/citely-demo.mp4)
+![Citely demo preview](docs/assets/demo/citely-demo-preview.gif)
 
-**Full video**: [citely-demo.mp4](docs/assets/demo/citely-demo.mp4) (3:22, compressed)
-
-| Video Link | Summary |
-|---|---|
-| [Citely Demo](docs/assets/demo/citely-demo.mp4) | The author imports a report and signs it on-chain; a human reader unlocks the full article through x402 with MetaMask; an AI agent uses the same paid API to read the article and answer with citation. |
+**Full demo video**: [YouTube](https://www.youtube.com/watch?v=C0cxGBRsE68)
 
 ### Main Flow
 
@@ -152,4 +153,4 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 
 ## License
 
-License to be confirmed. Please contact the maintainers before reuse, distribution, or commercial use.
+This project is open-sourced under the [Apache License 2.0](LICENSE).

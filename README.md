@@ -1,5 +1,9 @@
 <a id="citely"></a>
 
+<p align="center">
+  <img src="docs/assets/brand/citely-logo.png" alt="Citely logo" width="180" />
+</p>
+
 # ⚖️ Citely
 
 > 专家把 Web3 法律、合规、安全与风险报告签名上链；真人读者和 AI Agent 用 x402 按篇付费解锁全文，收入 100% 直达作者钱包。
@@ -9,6 +13,7 @@
 [![x402](https://img.shields.io/badge/x402-pay--per--read-3B82F6)](https://x402.org/)
 [![Base Sepolia](https://img.shields.io/badge/Base-Sepolia-0052FF)](https://docs.base.org/)
 [![EAS](https://img.shields.io/badge/EAS-attestations-6B7280)](https://attest.org/)
+[![License](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
 
 **中文** | [English](README.en.md)
 
@@ -95,13 +100,9 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 
 ### 视频演示
 
-[![Citely demo preview](docs/assets/demo/citely-demo-preview.gif)](docs/assets/demo/citely-demo.mp4)
+![Citely demo preview](docs/assets/demo/citely-demo-preview.gif)
 
-**完整视频**：[citely-demo.mp4](docs/assets/demo/citely-demo.mp4)（3:22，压缩版）
-
-| 视频播放地址 | 视频梗概 |
-|---|---|
-| [Citely Demo](docs/assets/demo/citely-demo.mp4) | 作者导入报告并签名上链；真人读者用 MetaMask 通过 x402 解锁全文；AI Agent 通过同一付费接口读取内容并生成带来源的回答。 |
+**完整 Demo 视频**：[YouTube](https://www.youtube.com/watch?v=C0cxGBRsE68)
 
 ### 主流程说明
 
@@ -152,4 +153,4 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 
 ## 许可
 
-许可证待确认。复用、分发或商用前请先联系维护者确认授权边界。
+本项目采用 [Apache License 2.0](LICENSE) 开源。
