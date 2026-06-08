@@ -148,8 +148,8 @@ Demo 只展示一条主流程：**输入文章 URL -> AI / agent 处理 -> 作�
 
 | 成员 | 角色 | GitHub |
 |---|---|---|
-| Sophie | 产品设计与全栈实现 | [@web3yaso](https://github.com/web3yaso) |
-| Alex Fan | 合规策略与项目叙事 | [@alexfanzong](https://github.com/alexfanzong) |
+| Sophie | 前 Web3 钱包产品经理，负责产品设计与全栈开发 | [@web3yaso](https://github.com/web3yaso) |
+| Alex Fan | 跨境合规架构师，负责合规策略与项目叙事 | [@alexfanzong](https://github.com/alexfanzong) |
 
 ## 许可
 

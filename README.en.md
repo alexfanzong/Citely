@@ -148,8 +148,8 @@ The demo focuses on one main flow: **input report URL -> AI / agent processing -
 
 | Member | Role | GitHub |
 |---|---|---|
-| Sophie | Product design and full-stack implementation | [@web3yaso](https://github.com/web3yaso) |
-| Alex Fan | Compliance strategy and project narrative | [@alexfanzong](https://github.com/alexfanzong) |
+| Sophie | Former Web3 wallet product manager; product design and full-stack development | [@web3yaso](https://github.com/web3yaso) |
+| Alex Fan | Cross-border compliance architect; compliance strategy and project narrative | [@alexfanzong](https://github.com/alexfanzong) |
 
 ## License
 
